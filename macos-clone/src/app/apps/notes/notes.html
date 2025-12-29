@@ -1,0 +1,78 @@
+<div class="notes">
+  <div class="notes-header">
+    <h2>Notatki</h2>
+  </div>
+
+  <div class="notes-container">
+  
+    <div class="notes-sidebar">
+      <div class="notes-toolbar">
+        <input
+          type="text"
+          class="search-input"
+          placeholder="Szukaj notatek..."
+          (input)="onSearchChange($event)"
+          [value]="searchQuery"
+        />
+        <button class="add-note-btn" (click)="createNewNote()">+</button>
+      </div>
+
+      <div class="notes-list">
+        <div
+          *ngFor="let note of filteredNotes"
+          class="notes-item"
+          [class.selected]="selectedNote?.id === note.id"
+          (click)="selectNote(note)"
+        >
+          <div class="note-title">{{ note.title }}</div>
+          <div class="note-date">{{ formatDate(note.modified) }}</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Editor -->
+    <div class="notes-editor" *ngIf="selectedNote">
+      <div class="editor-header">
+        <input
+          type="text"
+          class="editor-title-input"
+          [value]="selectedNote.title"
+          (input)="updateNoteTitle($event)"
+          [disabled]="!isEditing"
+        />
+        <div class="editor-buttons">
+          <button
+            class="editor-btn cancel"
+            (click)="deleteNote(selectedNote!.id)"
+            *ngIf="!isEditing"
+          >
+            Usuń
+          </button>
+          <button class="editor-btn cancel" (click)="startEditing()" *ngIf="!isEditing">
+            Edytuj
+          </button>
+          <button class="editor-btn save" (click)="saveNote()" *ngIf="isEditing">Zapisz</button>
+          <button class="editor-btn cancel" (click)="cancelEditing()" *ngIf="isEditing">
+            Anuluj
+          </button>
+        </div>
+      </div>
+
+      <div class="editor-content">
+        <textarea
+          class="editor-textarea"
+          [value]="selectedNote.content"
+          (input)="updateNoteContent($event)"
+          [disabled]="!isEditing"
+          placeholder="Zacznij pisać..."
+        ></textarea>
+      </div>
+    </div>
+
+
+    <div class="empty-state" *ngIf="!selectedNote">
+      <div class="empty-state-icon">📝</div>
+      <div class="empty-state-text">Brak wybranej notatki</div>
+    </div>
+  </div>
+</div>

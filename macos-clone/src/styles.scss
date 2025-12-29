@@ -1,0 +1,496 @@
+
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background: #ffffff;
+  color: #333;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+body[data-theme='light'],
+body:not([data-theme]) {
+  background: #ffffff;
+  color: #333333;
+}
+
+
+body[data-theme='dark'],
+body.dark-mode {
+  background: #000000 !important;
+  color: #ffffff !important;
+}
+
+
+body[data-theme='dark'] .finder-sidebar,
+body.dark-mode .finder-sidebar {
+  background: #000000 !important;
+  color: #ffffff !important;
+}
+
+body[data-theme='dark'] .sidebar-item,
+body.dark-mode .sidebar-item {
+  color: #ffffff !important;
+  background: #000000 !important;
+}
+
+body[data-theme='dark'] .sidebar-item:hover,
+body.dark-mode .sidebar-item:hover {
+  background: #333333 !important;
+}
+
+body[data-theme='dark'] .sidebar-label,
+body.dark-mode .sidebar-label {
+  color: #ffffff !important;
+}
+
+body[data-theme='dark'] .sidebar-title,
+body.dark-mode .sidebar-title {
+  color: #999 !important;
+}
+
+body[data-theme='dark'] .finder-header,
+body.dark-mode .finder-header {
+  background: #000000 !important;
+  color: #ffffff !important;
+  border-bottom-color: #333333 !important;
+}
+
+body[data-theme='dark'] .breadcrumb,
+body.dark-mode .breadcrumb {
+  color: #999 !important;
+}
+
+body[data-theme='dark'] .path,
+body.dark-mode .path {
+  color: #ffffff !important;
+}
+
+body[data-theme='dark'] .menu-bar,
+body.dark-mode .menu-bar {
+  background: rgba(28, 28, 30, 0.8) !important;
+  border-bottom-color: rgba(255, 255, 255, 0.1) !important;
+  color: #ffffff !important;
+}
+
+body[data-theme='dark'] .menu-item,
+body.dark-mode .menu-item {
+  color: #ffffff !important;
+}
+
+body[data-theme='dark'] .system-icon,
+body.dark-mode .system-icon {
+  color: #ffffff !important;
+}
+
+body[data-theme='dark'] .time,
+body[data-theme='dark'] .date,
+body.dark-mode .time,
+body.dark-mode .date {
+  color: #ffffff !important;
+}
+
+body[data-theme='dark'] .finder-toolbar,
+body.dark-mode .finder-toolbar {
+  background: #000000 !important;
+  border-bottom-color: #333333 !important;
+  color: #ffffff !important;
+}
+
+body[data-theme='dark'] .back-button,
+body.dark-mode .back-button {
+  color: #ffffff !important;
+  background: #000000 !important;
+}
+
+body[data-theme='dark'] .back-button:hover:not(:disabled),
+body.dark-mode .back-button:hover:not(:disabled) {
+  background: #333333 !important;
+}
+
+body[data-theme='dark'] .file-item,
+body.dark-mode .file-item {
+  color: #ffffff !important;
+  background: #000000 !important;
+}
+
+body[data-theme='dark'] .file-item:hover,
+body.dark-mode .file-item:hover {
+  background: #333333 !important;
+}
+
+body[data-theme='dark'] .file-name,
+body.dark-mode .file-name {
+  color: #ffffff !important;
+}
+
+body[data-theme='dark'] .file-meta,
+body.dark-mode .file-meta {
+  color: #999 !important;
+}
+
+body[data-theme='dark'] .settings,
+body.dark-mode .settings {
+  background: #000000 !important;
+  color: #ffffff !important;
+}
+
+body[data-theme='dark'] .settings-section h3,
+body.dark-mode .settings-section h3 {
+  color: #ffffff !important;
+}
+
+body[data-theme='dark'] .setting-label,
+body.dark-mode .setting-label {
+  color: #ffffff !important;
+}
+
+body[data-theme='dark'] .setting-description,
+body.dark-mode .setting-description {
+  color: #999 !important;
+}
+
+
+body[data-theme='dark'] .photos,
+body.dark-mode .photos {
+  background: #000000 !important;
+  color: #ffffff !important;
+}
+
+body[data-theme='dark'] .photos-toolbar,
+body.dark-mode .photos-toolbar {
+  background: #000000 !important;
+  color: #ffffff !important;
+}
+
+body[data-theme='dark'] .photos-content,
+body.dark-mode .photos-content {
+  background: #000000 !important;
+}
+
+body[data-theme='dark'] .notes,
+body.dark-mode .notes {
+  background: #000000 !important;
+  color: #ffffff !important;
+}
+
+body[data-theme='dark'] .notes-header,
+body.dark-mode .notes-header {
+  background: #000000 !important;
+  color: #ffffff !important;
+}
+
+body[data-theme='dark'] .notes-sidebar,
+body.dark-mode .notes-sidebar {
+  background: #000000 !important;
+  color: #ffffff !important;
+}
+
+body[data-theme='dark'] .notes-content,
+body.dark-mode .notes-content {
+  background: #000000 !important;
+  color: #ffffff !important;
+}
+
+body[data-theme='dark'] .terminal,
+body.dark-mode .terminal {
+  background: #000000 !important;
+  color: #ffffff !important;
+}
+
+body[data-theme='dark'] .terminal-header,
+body.dark-mode .terminal-header {
+  background: #000000 !important;
+  color: #ffffff !important;
+}
+
+body[data-theme='dark'] .terminal-output,
+body.dark-mode .terminal-output {
+  background: #000000 !important;
+  color: #ffffff !important;
+}
+
+
+body[data-theme='dark'] [class*='-header'],
+body.dark-mode [class*='-header'] {
+  background: #000000 !important;
+  color: #ffffff !important;
+}
+
+body[data-theme='dark'] [class*='-toolbar'],
+body.dark-mode [class*='-toolbar'] {
+  background: #000000 !important;
+  color: #ffffff !important;
+}
+
+
+body[data-theme='dark'] [class*='-content'],
+body.dark-mode [class*='-content'] {
+  background: #000000 !important;
+  color: #ffffff !important;
+}
+
+
+body[data-theme='dark'] [class*='app'],
+body.dark-mode [class*='app'] {
+  background: #000000 !important;
+  color: #ffffff !important;
+}
+
+body[data-theme='dark'] .photos *,
+body.dark-mode .photos *,
+body[data-theme='dark'] .notes *,
+body.dark-mode .notes *,
+body[data-theme='dark'] .settings *,
+body.dark-mode .settings *,
+body[data-theme='dark'] .calculator *,
+body.dark-mode .calculator *,
+body[data-theme='dark'] .terminal *,
+body.dark-mode .terminal * {
+  background: #000000 !important;
+  color: #ffffff !important;
+}
+
+body[data-theme='dark'] [class*='-header'] *,
+body.dark-mode [class*='-header'] *,
+body[data-theme='dark'] [class*='-toolbar'] *,
+body.dark-mode [class*='-toolbar'] * {
+  background: #000000 !important;
+  background-color: #000000 !important;
+}
+
+
+body[data-theme='dark'] [style*='background: white'],
+body.dark-mode [style*='background: white'],
+body[data-theme='dark'] [style*='background: #fff'],
+body.dark-mode [style*='background: #fff'],
+body[data-theme='dark'] [style*='background: #ffffff'],
+body.dark-mode [style*='background: #ffffff'] {
+  background: #000000 !important;
+  background-color: #000000 !important;
+}
+
+
+body[data-theme='light'] .photos,
+body:not([data-theme]) .photos {
+  background: #ffffff !important;
+  color: #333333 !important;
+}
+
+body[data-theme='light'] .photos-toolbar,
+body:not([data-theme]) .photos-toolbar {
+  background: #f8f8f8 !important;
+  color: #333333 !important;
+}
+
+body[data-theme='light'] .notes,
+body:not([data-theme]) .notes {
+  background: #ffffff !important;
+  color: #333333 !important;
+}
+
+body[data-theme='light'] .notes-header,
+body:not([data-theme]) .notes-header {
+  background: #f8f8f8 !important;
+  color: #333333 !important;
+}
+
+body[data-theme='light'] .notes-sidebar,
+body:not([data-theme]) .notes-sidebar {
+  background: #f8f8f8 !important;
+  color: #333333 !important;
+}
+
+body[data-theme='light'] .calculator,
+body:not([data-theme]) .calculator {
+  background: #ffffff !important;
+  color: #333333 !important;
+}
+
+body[data-theme='light'] .calculator-display,
+body:not([data-theme]) .calculator-display {
+  background: #f8f8f8 !important;
+  color: #333333 !important;
+}
+
+body[data-theme='light'] .settings,
+body:not([data-theme]) .settings {
+  background: #ffffff !important;
+  color: #333333 !important;
+}
+
+body[data-theme='light'] .settings-header,
+body:not([data-theme]) .settings-header {
+  background: #f8f8f8 !important;
+  color: #333333 !important;
+}
+
+
+body[data-theme='light'] [class*='-header'],
+body:not([data-theme]) [class*='-header'] {
+  background: #f8f8f8 !important;
+  color: #333333 !important;
+}
+
+body[data-theme='light'] [class*='-toolbar'],
+body:not([data-theme]) [class*='-toolbar'] {
+  background: #f8f8f8 !important;
+  color: #333333 !important;
+}
+
+
+body[data-theme='light'] [class*='-content'],
+body:not([data-theme]) [class*='-content'] {
+  background: #ffffff !important;
+  color: #333333 !important;
+}
+
+
+body[data-theme='light'] [class*='app'],
+body:not([data-theme]) [class*='app'] {
+  background: #ffffff !important;
+  color: #333333 !important;
+}
+
+
+body[data-theme='dark'] input[type='text'],
+body.dark-mode input[type='text'],
+body[data-theme='dark'] input[type='search'],
+body.dark-mode input[type='search'],
+body[data-theme='dark'] textarea,
+body.dark-mode textarea {
+  background-color: #252525 !important;
+  color: #ffffff !important;
+  border-color: #333333 !important;
+}
+
+body[data-theme='dark'] input[type='text']::placeholder,
+body.dark-mode input[type='text']::placeholder,
+body[data-theme='dark'] input[type='search']::placeholder,
+body.dark-mode input[type='search']::placeholder,
+body[data-theme='dark'] textarea::placeholder,
+body.dark-mode textarea::placeholder {
+  color: #666666 !important;
+}
+
+body[data-theme='dark'] input[type='text']:focus,
+body.dark-mode input[type='text']:focus,
+body[data-theme='dark'] input[type='search']:focus,
+body.dark-mode input[type='search']:focus,
+body[data-theme='dark'] textarea:focus,
+body.dark-mode textarea:focus {
+  outline-color: #007aff !important;
+  border-color: #007aff !important;
+}
+
+/* Dark mode for buttons */
+body[data-theme='dark'] button,
+body.dark-mode button {
+  color: #ffffff !important;
+}
+
+body[data-theme='dark']
+  button:not(.calc-button):not(.window-btn):not(.add-note-btn):not(.view-toggle):not(.editor-btn),
+body.dark-mode
+  button:not(.calc-button):not(.window-btn):not(.add-note-btn):not(.view-toggle):not(.editor-btn) {
+  background-color: #252525 !important;
+  border-color: #333333 !important;
+}
+
+body[data-theme='dark']
+  button:not(.calc-button):not(.window-btn):not(.add-note-btn):not(.view-toggle):not(
+    .editor-btn
+  ):hover,
+body.dark-mode
+  button:not(.calc-button):not(.window-btn):not(.add-note-btn):not(.view-toggle):not(
+    .editor-btn
+  ):hover {
+  background-color: #333333 !important;
+}
+
+
+body[data-theme='dark'] label,
+body.dark-mode label,
+body[data-theme='dark'] span,
+body.dark-mode span,
+body[data-theme='dark'] p,
+body.dark-mode p,
+body[data-theme='dark'] h1,
+body.dark-mode h1,
+body[data-theme='dark'] h2,
+body.dark-mode h2,
+body[data-theme='dark'] h3,
+body.dark-mode h3,
+body[data-theme='dark'] h4,
+body.dark-mode h4,
+body[data-theme='dark'] h5,
+body.dark-mode h5,
+body[data-theme='dark'] h6,
+body.dark-mode h6 {
+  color: #ffffff !important;
+}
+
+
+body[data-theme='dark'] input:disabled,
+body.dark-mode input:disabled,
+body[data-theme='dark'] textarea:disabled,
+body.dark-mode textarea:disabled,
+body[data-theme='dark'] input[readonly],
+body.dark-mode input[readonly] {
+  background-color: #1a1a1a !important;
+  color: #999999 !important;
+}
+
+
+body[data-theme='dark'] .app-icon,
+body.dark-mode .app-icon {
+  filter: invert(1) hue-rotate(180deg);
+}
+
+body[data-theme='dark'] .dock-icon svg,
+body.dark-mode .dock-icon svg {
+  filter: invert(1) hue-rotate(180deg);
+}
+
+
+body[data-theme='dark'] .wallpaper-name,
+body.dark-mode .wallpaper-name {
+  color: #ffffff !important;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.9), 0 1px 2px rgba(0, 0, 0, 0.8) !important;
+  background: rgba(0, 0, 0, 0.4) !important;
+  font-weight: 600 !important;
+}
+
+
+body[data-theme='dark'] .toolbar-left h3,
+body.dark-mode .toolbar-left h3,
+body[data-theme='dark'] .notes-header h2,
+body.dark-mode .notes-header h2,
+body[data-theme='dark'] .photos-header h2,
+body.dark-mode .photos-header h2,
+body[data-theme='dark'] .settings-header h2,
+body.dark-mode .settings-header h2 {
+  color: #000000 !important;
+  background: transparent !important;
+  padding: 0 !important;
+  border-radius: 0 !important;
+  font-weight: 600 !important;
+}
+
+
+body[data-theme='dark'] .photo-count,
+body.dark-mode .photo-count {
+  background: transparent !important;
+  color: #000000 !important;
+  font-weight: 600 !important;
+}

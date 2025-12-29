@@ -1,0 +1,34 @@
+<div class="dock" (clickOutside)="closeContextMenu()">
+  <div
+    *ngFor="let app of dockApps"
+    class="dock-item"
+    [class.active]="isAppOpen(app.id)"
+    (click)="openApp(app)"
+    (contextmenu)="onContextMenu($event, app)"
+    (mouseenter)="onAppHover(app.id)"
+    (mouseleave)="onAppLeave()"
+    [title]="app.name"
+  >
+    <div class="dock-icon">
+      <img [src]="'assets/icons/' + app.icon + '.svg'" [alt]="app.name" class="app-icon" />
+      <div class="running-indicator" *ngIf="isAppOpen(app.id)"></div>
+    </div>
+    <div class="dock-label" [class.visible]="hoveredApp === app.id">{{ app.name }}</div>
+
+    <div class="context-menu" *ngIf="activeContextMenu === app.id">
+      <div class="context-item" (click)="onDockContextAction('open', app)">Otwórz</div>
+      <div class="context-item" (click)="onDockContextAction('show-in-finder', app)">
+        Pokaż w Finderze
+      </div>
+      <div class="context-item" (click)="onDockContextAction('options', app)">Opcje...</div>
+      <div class="context-separator" *ngIf="isAppOpen(app.id)"></div>
+      <div
+        class="context-item"
+        (click)="onDockContextAction('quit', app)"
+        *ngIf="isAppOpen(app.id)"
+      >
+        Zamknij
+      </div>
+    </div>
+  </div>
+</div>

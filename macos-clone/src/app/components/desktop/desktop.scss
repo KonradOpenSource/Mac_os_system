@@ -1,0 +1,46 @@
+.desktop {
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: #f0f0f0;
+
+  &.dark-mode {
+    background-color: #000000;
+  }
+}
+
+.desktop-area {
+  position: absolute;
+  top: 28px;
+  left: 0;
+  right: 0;
+  bottom: 80px;
+  overflow: hidden;
+}
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  overflow: hidden;
+  user-select: none;
+
+  &.dark-mode {
+    background-color: #000000;
+    color: #ffffff;
+  }
+}
+
+
+.dark-mode .desktop {
+  background-color: #000000;
+}

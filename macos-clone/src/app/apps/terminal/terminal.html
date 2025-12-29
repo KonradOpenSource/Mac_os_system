@@ -1,0 +1,17 @@
+<div class="terminal">
+  <div class="terminal-header">bash — 100×40</div>
+
+  <div class="terminal-output" #terminalOutput></div>
+
+  <div class="terminal-input-line" (clickOutside)="terminalInput.focus()">
+    <input
+      #terminalInput
+      type="text"
+      class="terminal-input"
+      [(ngModel)]="currentCommand"
+      (keydown.enter)="onCommandSubmit()"
+      (keydown)="onKeyDown($event)"
+      placeholder="Type a command..."
+    />
+  </div>
+</div>

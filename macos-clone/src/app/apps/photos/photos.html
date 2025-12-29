@@ -1,0 +1,64 @@
+<div class="photos">
+  <div class="photos-header">
+    <h2>Zdjęcia</h2>
+  </div>
+
+  <div class="photos-container">
+   
+    <div class="photos-sidebar">
+      <div class="photos-toolbar">
+        <input
+          type="text"
+          class="search-input"
+          placeholder="Szukaj zdjęć..."
+          (input)="onSearchChange($event)"
+          [value]="searchQuery"
+        />
+        <button class="add-photo-btn" (click)="addPhoto()">+</button>
+      </div>
+
+      <div class="photos-list">
+        <div
+          *ngFor="let photo of filteredPhotos"
+          class="photos-item"
+          [class.selected]="selectedPhoto?.id === photo.id"
+          (click)="selectPhoto(photo)"
+        >
+          <div class="photo-title">{{ photo.name }}</div>
+        </div>
+      </div>
+    </div>
+
+   
+    <div class="photos-viewer" *ngIf="selectedPhoto">
+      <div class="viewer-header">
+        <div class="viewer-title">{{ selectedPhoto.name }}</div>
+        <div class="viewer-buttons">
+          <button class="viewer-btn cancel" (click)="deletePhoto(selectedPhoto!.id)">Usuń</button>
+        </div>
+      </div>
+
+      <div class="viewer-content">
+        <div class="photo-display">
+          <img [src]="selectedPhoto.url" [alt]="selectedPhoto.name" />
+        </div>
+        <div class="photo-metadata">
+          <div class="meta-item">
+            <span class="meta-label">Rozmiar:</span>
+            <span class="meta-value">{{ selectedPhoto.size }}</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">Data:</span>
+            <span class="meta-value">{{ selectedPhoto.date }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+   
+    <div class="empty-state" *ngIf="!selectedPhoto">
+      <div class="empty-state-icon">📷</div>
+      <div class="empty-state-text">Brak wybranego zdjęcia</div>
+    </div>
+  </div>
+</div>

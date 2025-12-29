@@ -1,0 +1,233 @@
+.window-container {
+  position: absolute;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.16), 0 0 0 1px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  will-change: transform;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+
+  &.minimized {
+    display: none;
+  }
+
+  &.maximized {
+    width: 100vw !important;
+    height: 100vh !important;
+    left: 0 !important;
+    top: 0 !important;
+    border-radius: 0;
+  }
+
+  &.focused {
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2), 0 0 0 1px rgba(0, 0, 0, 0.15);
+  }
+}
+
+.window-titlebar {
+  height: 28px;
+  background: linear-gradient(to bottom, #f5f5f5, #efefef);
+  border-bottom: 1px solid #d0d0d0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 12px;
+  user-select: none;
+  cursor: grab;
+  flex-shrink: 0;
+
+  &:active {
+    cursor: grabbing;
+  }
+}
+
+.window-buttons {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.window-btn {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  font-size: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: transparent;
+  transition: transform 0.15s ease;
+  flex-shrink: 0;
+
+  &:hover {
+    transform: scale(1.15);
+  }
+}
+
+.close-btn {
+  background: #ed6158;
+
+  &:hover {
+    background: #f25056;
+  }
+}
+
+.minimize-btn {
+  background: #fcc02e;
+
+  &:hover {
+    background: #fcb81e;
+  }
+}
+
+.maximize-btn {
+  background: #5fc038;
+
+  &:hover {
+    background: #6bd148;
+  }
+}
+
+.window-title {
+  flex: 1;
+  text-align: center;
+  font-size: 12px;
+  font-weight: 500;
+  color: #333;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.window-content {
+  flex: 1;
+  overflow: auto;
+  background: white;
+  contain: layout style paint;
+}
+
+.resize-handle {
+  position: absolute;
+  z-index: 100;
+  background: transparent;
+  pointer-events: auto;
+
+  &:hover {
+    background: rgba(0, 122, 255, 0.3);
+    border: 2px solid rgba(0, 122, 255, 0.5);
+  }
+
+  &.resize-n {
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 10px;
+    cursor: n-resize;
+  }
+
+  &.resize-s {
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 10px;
+    cursor: s-resize;
+  }
+
+  &.resize-e {
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 10px;
+    cursor: e-resize;
+  }
+
+  &.resize-w {
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 10px;
+    cursor: w-resize;
+  }
+
+  &.resize-ne {
+    top: 0;
+    right: 0;
+    width: 20px;
+    height: 20px;
+    cursor: ne-resize;
+  }
+
+  &.resize-nw {
+    top: 0;
+    left: 0;
+    width: 20px;
+    height: 20px;
+    cursor: nw-resize;
+  }
+
+  &.resize-se {
+    bottom: 0;
+    right: 0;
+    width: 20px;
+    height: 20px;
+    cursor: se-resize;
+  }
+
+  &.resize-sw {
+    bottom: 0;
+    left: 0;
+    width: 20px;
+    height: 20px;
+    cursor: sw-resize;
+  }
+}
+
+
+.window-container.maximized .resize-handle,
+.window-container.minimized .resize-handle {
+  display: none;
+}
+
+
+.dark-mode .window-container {
+  background: #000000;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.8), 0 0 0 1px rgba(255, 255, 255, 0.1);
+
+  &.focused {
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.9), 0 0 0 1px rgba(255, 255, 255, 0.15);
+  }
+
+  &.maximized {
+    background: #000000;
+  }
+}
+
+.dark-mode .window-titlebar {
+  background: linear-gradient(to bottom, #000000, #000000);
+  border-bottom-color: #333333;
+}
+
+.dark-mode .window-title {
+  color: #ffffff;
+}
+
+.dark-mode .window-content {
+  background: #000000;
+  color: #ffffff;
+}
+
+
+.window-container.cdk-drag-preview {
+  opacity: 0.8;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+}
+
+.cdk-drop-list-dragging .window-container:not(.cdk-drag-preview) {
+  transition: none;
+}

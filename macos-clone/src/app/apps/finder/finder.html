@@ -1,0 +1,68 @@
+<div class="finder">
+  <div class="finder-toolbar">
+    <button class="back-button" (click)="goBack()" [disabled]="currentPath === '/'">←</button>
+    <div class="path">{{ currentPath }}</div>
+  </div>
+  
+  <div class="finder-content">
+
+    <div class="finder-sidebar">
+      <div class="sidebar-section">
+        <div class="sidebar-title">Ulubione</div>
+        <div class="sidebar-items">
+          <div 
+            *ngFor="let item of sidebarItems" 
+            class="sidebar-item"
+            (click)="navigateToPath(item.path)">
+            <div class="sidebar-icon {{ getIconClass(item.icon) }}"></div>
+            <span class="sidebar-label">{{ item.name }}</span>
+          </div>
+        </div>
+      </div>
+      
+      <div class="sidebar-section">
+        <div class="sidebar-title">Lokalizacje</div>
+        <div class="sidebar-items">
+          <div class="sidebar-item" (click)="navigateToPath('/')">
+            <div class="sidebar-icon icon-desktop"></div>
+            <span class="sidebar-label">Pulpit</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+   
+    <div class="finder-main">
+      <div class="finder-header">
+        <div class="breadcrumb">
+          <span *ngFor="let part of currentPath.split('/') | slice:1; let last = last">
+            <span class="breadcrumb-part" (click)="navigateToPath('/' + currentPath.split('/').slice(1, currentPath.split('/').indexOf(part) + 1).join('/'))">{{ part }}</span>
+            <span *ngIf="!last" class="breadcrumb-separator">/</span>
+          </span>
+        </div>
+      </div>
+
+    
+      <div class="file-list" cdkDropList (cdkDropListDropped)="onDrop($event)">
+        <div 
+          *ngFor="let item of currentItems" 
+          class="file-item"
+          [class.selected]="selectedItem?.id === item.id"
+          (click)="selectItem(item)"
+          (dblclick)="openItem(item)"
+          cdkDrag
+          (cdkDragStarted)="onDragStarted(item)"
+          (cdkDragEnded)="onDragEnded()">
+          <div class="file-icon {{ getIconClass(item.icon) }}"></div>
+          <div class="file-info">
+            <div class="file-name">{{ item.name }}</div>
+            <div class="file-meta">
+              <span *ngIf="item.size">{{ item.size }}</span>
+              <span>{{ item.modified }}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

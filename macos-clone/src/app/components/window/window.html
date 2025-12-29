@@ -1,0 +1,41 @@
+<div
+  class="window-container"
+  [style.left.px]="windowData.x"
+  [style.top.px]="windowData.y"
+  [style.width.px]="windowData.width"
+  [style.height.px]="windowData.height"
+  [style.zIndex]="windowData.zIndex"
+  [class.minimized]="windowData.isMinimized"
+  [class.maximized]="windowData.isMaximized"
+  [class.focused]="windowData.isFocused"
+  (click)="onWindowFocus()"
+  cdkDrag
+  [cdkDragDisabled]="isResizing"
+  cdkDragBoundary=".desktop"
+  (cdkDragEnded)="onWindowDragEnded($event)"
+  (cdkDragMoved)="onWindowDragMoved($event)"
+>
+  
+  <div class="window-titlebar" cdkDragHandle>
+    <div class="window-buttons">
+      <button class="window-btn close-btn" (click)="onClose()" title="Zamknij">●</button>
+      <button class="window-btn minimize-btn" (click)="onMinimize()" title="Minimalizuj">●</button>
+      <button class="window-btn maximize-btn" (click)="onMaximize()" title="Powiększ">●</button>
+    </div>
+    <div class="window-title">{{ windowData.title }}</div>
+  </div>
+
+  
+  <div class="window-content">
+    <ng-container [ngComponentOutlet]="getAppComponent()"></ng-container>
+  </div>
+
+  
+  <div
+    *ngFor="let handle of getResizeHandles()"
+    [class]="'resize-handle ' + handle.class"
+    (mousedown)="onResizeStart($event, handle.direction)"
+    (mouseenter)="onResizeHandleHover(handle.direction)"
+    title="Resize {{ handle.direction }}"
+  ></div>
+</div>

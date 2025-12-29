@@ -1,0 +1,13 @@
+<div class="menu-bar">
+  <div class="menu-left">
+    <span class="menu-item">Finder</span>
+    <span class="menu-item">Edycja</span>
+    <span class="menu-item">Widok</span>
+    <span class="menu-item">Okno</span>
+    <span class="menu-item">Pomoc</span>
+  </div>
+  <div class="menu-right">
+    <span class="time">{{ formatTime(currentTime) }}</span>
+    <span class="date">{{ formatDate(currentTime) }}</span>
+  </div>
+</div>

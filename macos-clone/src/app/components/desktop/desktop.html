@@ -1,0 +1,27 @@
+<div
+  class="desktop"
+  [class.dark-mode]="isDarkMode"
+  [style.background-image]="'url(' + currentWallpaper + ')'"
+>
+  
+  <app-menu-bar></app-menu-bar>
+
+
+  <div class="desktop-area">
+   
+    <app-window
+      *ngFor="let window of windows$ | async"
+      [windowData]="window"
+      (windowClose)="onWindowClose($event)"
+      (windowMinimize)="onWindowMinimize($event)"
+      (windowMaximize)="onWindowMaximize($event)"
+      (windowFocus)="onWindowFocus($event)"
+      (windowMove)="onWindowMove($event)"
+      (windowResize)="onWindowResize($event)"
+    >
+    </app-window>
+  </div>
+
+ 
+  <app-dock></app-dock>
+</div>

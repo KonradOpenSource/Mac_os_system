@@ -1,0 +1,24 @@
+<div class="calculator">
+  <div class="calculator-display">{{ getDisplayValue() }}</div>
+  <div class="calculator-buttons">
+    <button class="calc-button function" (click)="clear()">C</button>
+    <button class="calc-button function" (click)="clearEntry()">CE</button>
+    <button class="calc-button operator" (click)="percentage()">%</button>
+    <button class="calc-button operator" (click)="performOperation('/')">/</button>
+    <button class="calc-button" (click)="inputDigit('7')">7</button>
+    <button class="calc-button" (click)="inputDigit('8')">8</button>
+    <button class="calc-button" (click)="inputDigit('9')">9</button>
+    <button class="calc-button operator" (click)="performOperation('*')">*</button>
+    <button class="calc-button" (click)="inputDigit('4')">4</button>
+    <button class="calc-button" (click)="inputDigit('5')">5</button>
+    <button class="calc-button" (click)="inputDigit('6')">6</button>
+    <button class="calc-button operator" (click)="performOperation('-')">-</button>
+    <button class="calc-button" (click)="inputDigit('1')">1</button>
+    <button class="calc-button" (click)="inputDigit('2')">2</button>
+    <button class="calc-button" (click)="inputDigit('3')">3</button>
+    <button class="calc-button operator" (click)="performOperation('+')">+</button>
+    <button class="calc-button" (click)="inputDigit('0')" style="grid-column: span 2">0</button>
+    <button class="calc-button" (click)="inputDecimal()">.</button>
+    <button class="calc-button equals" (click)="performOperation('=')">=</button>
+  </div>
+</div>

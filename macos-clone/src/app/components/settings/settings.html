@@ -1,0 +1,48 @@
+<div class="settings">
+  <div class="settings-header">
+    <h2>Ustawienia systemowe</h2>
+  </div>
+
+  <div class="settings-content">
+    <div class="settings-section">
+      <h3>Wygląd</h3>
+
+      <div class="setting-item">
+        <div class="setting-info">
+          <label class="setting-label">Tryb ciemny</label>
+          <p class="setting-description">Przełącz między trybem jasnym a ciemnym</p>
+        </div>
+        <div class="setting-control">
+          <label class="switch">
+            <input
+              id="dark-mode-toggle"
+              name="dark-mode-toggle"
+              type="checkbox"
+              [checked]="isDarkMode"
+              (change)="toggleTheme()"
+            />
+            <span class="slider"></span>
+          </label>
+        </div>
+      </div>
+    </div>
+
+    <div class="settings-section">
+      <h3>Tapeta pulpitu</h3>
+
+      <div class="wallpaper-grid">
+        <div
+          *ngFor="let wallpaper of availableWallpapers"
+          class="wallpaper-item"
+          [class.selected]="currentWallpaper === wallpaper.id"
+          (click)="setWallpaper(wallpaper.id)"
+        >
+          <div class="wallpaper-preview">
+            <img [src]="getWallpaperPreview(wallpaper.id)" [alt]="wallpaper.name" />
+          </div>
+          <div class="wallpaper-name">{{ wallpaper.name }}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
