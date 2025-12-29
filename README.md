@@ -15,17 +15,19 @@ A web application that is a clone of the macOS interface, designed for large des
 - Window dragging and resizing
 - Themes (light/dark)
 
-## 🛠️ Technologies
+Angular_Design is developed using following technologies:
 
-The project was built using modern web technologies:
 
-- **Angular 21** - frontend framework
-- **Angular Material 21** - UI component library
-- **Angular CDK** - Component Development Kit
-- **TypeScript 5.9** - JavaScript typing
-- **RxJS 7.8** - reactive programming
-- **SCSS** - CSS preprocessor
-- **Karma + Jasmine** - testing framework
+
+![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white)   ![SASS](https://img.shields.io/badge/SASS-hotpink.svg?style=for-the-badge&logo=SASS&logoColor=white) ![Angular](https://img.shields.io/badge/angular-%23DD0031.svg?style=for-the-badge&logo=angular&logoColor=white) ![TypeScript](https://img.shields.io/badge/typescript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white)  ![RxJS](https://img.shields.io/badge/rxjs-%23B7178C.svg?style=for-the-badge&logo=reactivex&logoColor=white) Angular Material
+
+
+Testing:
+
+
+![Jasmine](https://img.shields.io/badge/jasmine-%238A4182.svg?style=for-the-badge&logo=jasmine&logoColor=white)
+<img src="https://raw.githubusercontent.com/detain/svg-logos/780f25886640cef088af994181646db2f6b1a3f8/svg/karma.svg" alt="karma" width="40" height="40"/> </a> 
+
 
 ## 🚀 Running the Application
 
