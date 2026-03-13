@@ -15,7 +15,7 @@ A web application that is a clone of the macOS interface, designed for large des
 - Window dragging and resizing
 - Themes (light/dark)
 
-Angular_Design is developed using following technologies:
+
 
 
 
